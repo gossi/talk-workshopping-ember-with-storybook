@@ -1,0 +1,43 @@
+ol {
+  list-style: decimal;
+}
+
+.two-cols-header {
+  grid-template-rows: auto !important;
+  gap: 1em;
+}
+
+/* li:blank::marker,
+li:blank::before {
+  content: none !important;
+  display: none !important;
+}
+
+li:empty::marker,
+li:empty::before {
+  content: none !important;
+  display: none !important;
+} */
+
+blockquote {
+  display: flex;
+  gap: 0.5em;
+  font-style: italic;
+  background: none !important;
+  border: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
+
+  &::before {
+    content: '“';
+    font-family: serif;
+    font-size: 5em;
+  }
+
+  cite {
+    display: inline-block;
+    padding-top: 1em;
+  }
+}
