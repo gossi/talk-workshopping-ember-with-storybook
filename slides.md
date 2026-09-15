@@ -475,7 +475,6 @@ export default {
     'typedoc-plugin-ember', 'typedoc-plugin-markdown', 'typedoc-plugin-inline-sources'
   ]
 };
-
 ```
 
 ---
@@ -875,11 +874,19 @@ const preview: Preview = {
 layout: full
 ---
 
+<SlidevVideo autoplay autoreset="slide">
+  <source src="/sportipedia-sb-globals.mov" type="video/mp4" />
+</SlidevVideo>
+
+
+---
+layout: full
+---
+
 <img src="/sportipedia-sb-globals-toolbar.png" class="absolute left-1/2 top-1/2
 -translate-x-1/2 -translate-y-1/2 w-200"/>
 
 <Arrow x1="400" y1="400" x2="215" y2="285" class="color-red" />
-
 
 ---
 layout: full
