@@ -2,7 +2,7 @@
 theme: apple-basic
 addons:
   - slidev-addon-bluesky
-title: The Frontend City
+title: Workshopping Ember with Storybook
 layout: intro
 class: grid
 transition: slide-left
