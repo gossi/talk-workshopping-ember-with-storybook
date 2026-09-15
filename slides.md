@@ -27,6 +27,7 @@ My Project: [Sportipedia](https://github.com/gossi/sportipedia)
 
 - Ember on vite + Warp Drive
 - Design System: [Hokulea](https://github.com/hokulea/hokulea)
+- Better Auth
 
 ## Testing?
 
