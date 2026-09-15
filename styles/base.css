@@ -41,3 +41,10 @@ blockquote {
     padding-top: 1em;
   }
 }
+
+figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  align-items: flex-start;
+}
