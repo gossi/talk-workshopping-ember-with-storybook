@@ -14,26 +14,47 @@ comark: true
 
 Thomas Gossmann
 
+<div class="absolute left-15 bottom-10">
 <lucide-house /> <a href="https://gos.si" target="_blank">gos.si</a><br>
 <simple-icons-bluesky /> <a href="https://bsky.app/profile/gos.si" target="_blank">gos.si</a><br/>
 <simple-icons-github /> <a href="https://github.com/gossi" target="_blank">gossi</a><br>
+</div>
+
+<img src="/weplan-logo.svg" alt="WePlan" class="absolute bottom-10 right-10 h-20 color-white">
 
 
 ---
 
-# Problem Statement
+# My Project: [Sportipedia](https://github.com/gossi/sportipedia)
 
-My Project: [Sportipedia](https://github.com/gossi/sportipedia)
+<br>
 
-- Ember on vite + Warp Drive
+- Ember on vite
+- Warp Drive
 - Design System: [Hokulea](https://github.com/hokulea/hokulea)
 - Better Auth
 
-## Testing?
+---
 
-- I don't want to write test
-- I want deterministic tests
-- I wanna play!
+# Goal
+
+Frontend Devtools:
+
+<ph-square /> What can the product do?<br>
+<ph-square /> Why it does that?<br>
+<ph-square /> I want to play with the UI<br>
+<ph-square /> I don't want to write tests<br>
+<ph-square /> One-Stop Shop vs. Tool-Hopping<br>
+
+<div v-click>
+
+<br>
+
+## Solution
+
+Frontend Workshop
+
+</div>
 
 ---
 
@@ -66,6 +87,8 @@ My Project: [Sportipedia](https://github.com/gossi/sportipedia)
 ---
 
 # Digital Workshop
+
+Every Tool has different capabilities
 
 <img
   src="/astro-logo.svg"
@@ -108,6 +131,39 @@ layout: full
 <div class="absolute top-10 h-4.5 w-115 left-1/2 ml-[-170px]" v-mark="{ at: ['2', '+1'], color: 'red', type: 'box' }"></div>
 <div class="absolute bottom-10 h-75 w-115 left-1/2 ml-[-170px]" v-mark="{ at: ['3', '+1'], color: 'red', type: 'box' }"></div>
 <div class="absolute top-10 h-118 w-29 left-1/2 ml-[-290px]" v-mark="{ at: '4', color: 'blue', type: 'box' }"></div>
+
+---
+layout: two-cols-header
+---
+
+# Storybook
+
+::left::
+
+## `@storybook/ember`
+
+<br>
+
+- Ember v3
+- Requires an Ember App running
+- Classic Build only
+- Storybook < 10
+
+::right::
+
+<div v-click>
+
+## `ember-storybook`
+
+<br>
+
+- Ember v6.8
+- Storybook v10
+- vite :)
+
+<simple-icons-github /> [ember-integrations/ember-storybook](https://github.com/ember-integrations/ember-storybook/)
+
+</div>
 
 ---
 layout: section
@@ -161,6 +217,64 @@ export const Stack: StoryObj = {
 ::right::
 
 <div style="margin: var(--slidev-code-margin)"><img src="/sb-button-nav.png" class="h-35"/></div>
+
+---
+layout: two-cols-header
+---
+
+# Rendering Components
+
+::left::
+
+## Implicit
+
+<div style="--slidev-code-font-size: 10px; --slidev-code-line-height: 10px;">
+
+```ts [button.stories.gts ~i-vscode-icons:file-type-storybook~]
+import { Button } from './button.gts';
+import type { Meta, StoryObj } from 'ember-storybook';
+
+export default {
+  title: 'Actions/Button',
+  component: Button
+} satisfies Meta;
+
+// ...
+```
+
+</div>
+
+::right::
+
+<div style="--slidev-code-font-size: 10px; --slidev-code-line-height: 10px;" v-click>
+
+## Explicit
+
+```glimmer-ts [button.stories.gts ~i-vscode-icons:file-type-storybook~]
+import { Button } from './button.gts';
+import type { Meta, StoryObj } from 'ember-storybook';
+
+export default {
+  title: 'Actions/Button',
+  component: Button,
+  render: (args) => <template>
+    <Button
+      @push={{args.push}}
+      @intent={{args.intent}}
+      @importance={{args.importance}}
+      @spacing={{args.spacing}}
+      @disabled={{args.disabled}}
+      @pressed={{args.pressed}}
+    >
+      {{args.label}}
+    </Button>
+  </template>
+} satisfies Meta;
+
+// ...
+```
+
+</div>
 
 ---
 layout: full-image-right
@@ -239,34 +353,18 @@ layout: two-cols-header
 ![](/signature-subcomponents.png)
 
 ---
-
-# Getting Started
-
-<br>
-
-## Requirements
-
-- Ember v6.8
-- Storybook v10
-- vite
-
-## Installation
-
-```sh
-pnpm add -D storybook ember-storybook
-```
-
----
 layout: two-cols-header
 ---
 
 # Getting Started
 
-## Configuration
+```sh
+pnpm add -D storybook ember-storybook
+```
 
 ::left::
 
-```ts [.storybook/main.ts] {none|4|6-9}
+```ts [.storybook/main.ts] {none|4|6-9|11-13}
 import type { StorybookConfig } from 'ember-storybook';
 
 const config: StorybookConfig = {
@@ -276,6 +374,10 @@ const config: StorybookConfig = {
     name: 'ember-storybook',
     options: {}
   },
+
+  async viteFinal(config, { configType }) {
+    // ...
+  }
 };
 
 export default config;
@@ -428,6 +530,15 @@ _Product_ ⋅ _Catalog of Sport Skills_
 </div>
 
 ---
+layout: quote
+---
+
+# Product Capabilities
+
+<ph-square /> What can the product do?<br>
+<ph-square /> Why it does that?<br>
+
+---
 
 # Domain Model
 
@@ -447,6 +558,15 @@ Emberfest 2024" class="h-80" />
 <img src="/sportipedia-typedoc.png" alt="Sportipedia Domain Model with Typedoc" class="h-95" />
 <figcaption class="text-xs">Sportipedia Domain Model with Typedoc</figcaption>
 </figure>
+
+<div class="absolute top-50 h-25 w-25 left-23" v-mark="{ color: 'red', type: 'box' }"></div>
+
+<Arrow x1="340" y1="360" x2="215" y2="285" class="color-red" v-click="1"/>
+
+<div class="absolute top-80 left-85 w-30 h-20 b-solid b-red b-1px p-2 text-center align-middle" v-click="1">
+  Warp Drive
+</div>
+
 
 ---
 
@@ -559,6 +679,48 @@ Storybook" class="absolute top-22 left-50 h-95" />
 
 ---
 
+## Goal
+
+Frontend Devtools:
+
+<ph-check-square class="color-green" /> What can the product do?<br>
+<ph-square /> Why it does that?<br>
+<ph-square /> I want to play with the UI<br>
+<ph-square /> I don't want to write tests<br>
+<ph-square /> One-Stop Shop vs. Tool-Hopping<br>
+
+---
+
+# Domain Model
+
+<figure>
+<img src="/sportipedia-sb-domain-model-canarchiveapparatus.png" alt="Understanding the Product" class="h-95" />
+<figcaption class="text-xs">Understanding the Product</figcaption>
+</figure>
+
+---
+
+## Goal
+
+Frontend Devtools:
+
+<ph-check-square /> What can the product do?<br>
+<ph-check-square class="color-green" /> Why it does that?<br>
+<ph-square /> I want to play with the UI<br>
+<ph-square /> I don't want to write tests<br>
+<ph-square /> One-Stop Shop vs. Tool-Hopping<br>
+
+
+---
+layout: quote
+---
+
+# User Interface
+
+<ph-square /> I want to play with the UI
+
+---
+
 # Domain Model
 
 ```ts
@@ -630,11 +792,9 @@ layout: two-cols-header
 layout: two-cols-header
 ---
 
-# Fixtures
+# Fixtures (Supermarket)
 
 ::left::
-
-## Fixtures Supermarket
 
 - POJOs
 - Composable (Aggregates consisting of entities and value objects)
@@ -717,7 +877,9 @@ export { InstrumentRoute, InstrumentTemplate };
 
 </div>
 
-<div class="absolute bottom-10 right-22 w-50 h-30 b-solid b-red b-1px p-2 rotate-350" v-click>
+<Arrow x1="745" y1="400" x2="520" y2="353" class="color-red" v-click="1"/>
+
+<div class="absolute bottom-10 right-22 w-50 h-30 b-solid b-red b-1px p-2 rotate-350" v-click="1">
   Fixtures cannot work with the network request?
 </div>
 
@@ -898,6 +1060,27 @@ layout: full
 
 ---
 
+## Goal
+
+Frontend Devtools:
+
+<ph-check-square /> What can the product do?<br>
+<ph-check-square /> Why it does that?<br>
+<ph-check-square class="color-green" /> I want to play with the UI<br>
+<ph-square /> I don't want to write tests<br>
+<ph-square /> One-Stop Shop vs. Tool-Hopping<br>
+
+
+---
+layout: quote
+---
+
+# Testing
+
+<ph-square /> I don't want to write tests
+
+---
+
 # Testing
 
 <div v-click>
@@ -994,7 +1177,7 @@ layout: center
 
 # Can this be Fun?
 
-<p v-click>Igor Luchenkov: hold my beer!</p>
+<p v-click>Igor Luchenkov: yes!</p>
 
 <div v-click>
 
@@ -1041,9 +1224,30 @@ Default.test('title to slug', async ({ canvas, args }) => {
 
 # Visual Regression Testing
 
-- `Percy` - With QUnit
-- `Chromatic` - Through Storybook
+- `Percy` - QUnit
+- `Chromatic` - Storybook
 - `Vitest` - [Vitest Visual Regression Testing](https://vitest.dev/guide/browser/visual-regression-testing.html)
+
+---
+
+## Goal
+
+Frontend Devtools:
+
+<ph-check-square /> What can the product do?<br>
+<ph-check-square /> Why it does that?<br>
+<ph-check-square /> I want to play with the UI<br>
+<ph-check-square class="color-green" /> I don't want to write tests<br>
+<ph-square /> One-Stop Shop vs. Tool-Hopping<br>
+
+
+---
+layout: quote
+---
+
+# Central Hub
+
+<ph-square /> One-Stop Shop vs. Tool-Hopping
 
 ---
 
@@ -1053,7 +1257,7 @@ Default.test('title to slug', async ({ canvas, args }) => {
 
 Let's bring it back:
 
-```ts
+```ts [.storybook/main.ts]
 import type { StorybookConfig } from 'ember-storybook';
 
 const config: StorybookConfig = {
@@ -1080,25 +1284,32 @@ export default config;
 </figure>
 
 ---
-layout: two-cols-header
+
+## Goal
+
+Frontend Devtools:
+
+<ph-check-square /> What can the product do?<br>
+<ph-check-square /> Why it does that?<br>
+<ph-check-square /> I want to play with the UI<br>
+<ph-check-square /> I don't want to write tests<br>
+<ph-check-square class="color-yellow" /> One-Stop Shop vs. Tool-Hopping<br>
+
+<figure class="absolute top-24 right-24 w-80" v-click>
+<img src="/antfu-devframe.png" alt="Anthony Fu introducing Devframe" />
+<figcaption class="text-xs"><a href="https://mu.social/profile/antfu.me/post/3mvmhfzhn422f" target="_blank">Anthony Fu introducing Devframe</a></figcaption>
+</figure>
+
+---
+layout: center
 ---
 
-# Mission Complete
+# 5+ Years in the Making
 
-::left::
-
+<div class="flex items-center">
 <img src="/gossi-ember-with-storybook-behind-the-scenes.png" alt="Blog Post:
-Ember With Storybook - Behind the Scenes" />
-
-::right::
-
-## Checklist
-
-<br>
-
-<ph-check-square /> Auto Documentation<br>
-<ph-check-square /> Write Stories with Ember Syntax<br>
-<ph-check-square /> API Docs
+Ember With Storybook - Behind the Scenes" class="h-100"/>
+</div>
 
 ---
 
@@ -1133,8 +1344,4 @@ layout: center
   </span>
 </div>
 
-<div class="absolute bottom-10 right-10">
-  <span>
-    [WePlan Logo]
-  </span>
-</div>
+<img src="/weplan-logo.svg" alt="WePlan" class="absolute bottom-10 right-10 h-20 color-white">
