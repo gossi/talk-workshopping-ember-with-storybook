@@ -7,6 +7,7 @@ layout: intro
 class: grid
 transition: slide-left
 comark: true
+download: true
 ---
 <!-- markdownlint-disable -->
 
