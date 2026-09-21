@@ -16,6 +16,7 @@
     "vue": "^3.5.41"
   },
   "devDependencies": {
-    "@iconify-json/vscode-icons": "^1.2.75"
+    "@iconify-json/vscode-icons": "^1.2.75",
+    "playwright-chromium": "^1.63.0"
   }
 }
